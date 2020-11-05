@@ -1,8 +1,10 @@
+/* Imports */
 import express from 'express';
 import { studentRouter } from './routes/studentRouter.js';
 import mongoose from 'mongoose';
 const app = express();
 
+/* MongoDB connection */
 const uri =
   'mongodb+srv://nordiws:paul8813@bootcampfullstack.fspeg.mongodb.net/fullstack?retryWrites=true&w=majority';
 (async () => {
@@ -17,6 +19,7 @@ const uri =
   }
 })();
 
+/* Server control */
 app.use(express.json());
 app.use(studentRouter);
 
