@@ -44,6 +44,7 @@ app.patch('/student/:id', async (req, res) => {
   }
 });
 
+//Deletes an existing document
 app.delete('/student/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -58,6 +59,7 @@ app.delete('/student/:id', async (req, res) => {
   }
 });
 
+//UPDATE an existing document with PUT method
 app.put('/student/:id', async (req, res) => {
   try {
     const { id } = req.params;
