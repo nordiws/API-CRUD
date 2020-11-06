@@ -1,6 +1,6 @@
 /* Imports */
 import express from 'express';
-import { studentRouter } from './routes/studentRouter.js';
+import { studentRouter } from '../routes/studentRouter.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
