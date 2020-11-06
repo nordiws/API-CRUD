@@ -2,14 +2,13 @@
 import express from 'express';
 import { studentRouter } from './routes/studentRouter.js';
 import mongoose from 'mongoose';
-const app = express();
+import dotenv from 'dotenv';
+dotenv.config();
 
 /* MongoDB connection */
-const uri =
-  'mongodb+srv://nordiws:paul8813@bootcampfullstack.fspeg.mongodb.net/fullstack?retryWrites=true&w=majority';
 (async () => {
   try {
-    await mongoose.connect(uri, {
+    await mongoose.connect(process.env.URL_DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -20,7 +19,7 @@ const uri =
 })();
 
 /* Server control */
+const app = express();
 app.use(express.json());
 app.use(studentRouter);
-
-app.listen(3000, () => console.log('API started!'));
+app.listen(process.env.PORT, () => console.log('API started!'));
