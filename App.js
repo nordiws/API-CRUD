@@ -14,7 +14,7 @@ dotenv.config();
     });
     console.log('Conectado ao Mongo DB Atlas');
   } catch (err) {
-    console.log('Erro ao conectar ao Mongo DB Atlas' + err);
+    console.log('Erro ao conectar com o Mongo DB Atlas' + err);
   }
 })();
 
