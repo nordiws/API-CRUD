@@ -59,4 +59,25 @@ app.delete('/student/:id', async (req, res) => {
   }
 });
 
+//UPDATE an existing document
+app.put('/student/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const student = await studentModel.findByIdAndUpdate(
+      { _id: id },
+      req.body,
+      {
+        new: true,
+      }
+    );
+    if (!student) {
+      res.status(404).send('Documento não encontrado na coleção!');
+      return;
+    }
+    res.send(student);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 export { app as studentRouter };
